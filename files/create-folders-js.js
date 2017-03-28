@@ -1,7 +1,7 @@
 'use strict'
 
 const fs = require('fs');
-const folders = ['C:/Users/Evellyn/Documents/github/controller', 'view'];
+const folders = ['controller', 'view'];
 const foldersCallback = function (err) {
   if (err) return console.log(err);
   console.log('Pastas js criadas')
