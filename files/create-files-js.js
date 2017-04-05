@@ -1,13 +1,14 @@
 'use strict'
 
 const fs = require('fs');
-const files = ['global.js'];
+let files = process.argv[2];
 const data = '"use strict"';
 const filesCallback = function (err) {
-  if (err) return console.log(err);
-  console.log('Arquivos criados');
+  if (err) return console.log(err)
+  console.log('Arquivos criados')
 }
 
+files = files.split(',')
 files.forEach(file => {
-  fs.writeFile(file, data, filesCallback);
+  fs.writeFile(file + '.js', data, filesCallback)
 });

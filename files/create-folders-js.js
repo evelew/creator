@@ -1,12 +1,13 @@
 'use strict'
 
 const fs = require('fs');
-const folders = ['controller', 'view'];
+let folders = process.argv[2];
 const foldersCallback = function (err) {
-  if (err) return console.log(err);
+  if (err) return console.log(err)
   console.log('Pastas js criadas')
 }
 
+folders = folders.split(',');
 folders.forEach(folder => {
-  fs.mkdir(folder, foldersCallback);
+  fs.mkdir(folder, foldersCallback)
 });
