@@ -11,5 +11,8 @@
     "easy"
   ],
   "author": "Evellyn Lim",
-  "license": "WTFPL"
+  "license": "WTFPL",
+  "dependencies": {
+    "colors": "^1.1.2"
+  }
 }

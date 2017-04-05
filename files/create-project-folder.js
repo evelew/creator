@@ -2,6 +2,7 @@
 
 // function CreateProjectFolder() {
 const fs = require('fs');
+const colors = require('colors');
 const readline = require('readline')
 const rl = readline.createInterface({
   input: process.stdin,
@@ -13,13 +14,14 @@ let response = ''
 
 const projectFolderCallback = function (err) {
   if (err) return console.log(err)
-  console.log(response)
+  console.log(response.green)
 }
 
 rl.question(question, (answer) => {
-  response = `Projeto ${answer} criado`
+  response = `Projeto "${answer}" criado`
 
   fs.mkdir(answer, projectFolderCallback)
+  rl.close()
 })
 // }
 
