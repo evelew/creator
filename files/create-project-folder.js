@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const rl = require('./readline');
+const path = require('./global-paths');
 const question = 'Nome do projeto:\n'
 let response = ''
 
@@ -14,7 +15,7 @@ function CreateProjectFolder() {
   rl.question(question, (answer) => {
     response = `Projeto "${answer}" criado`
 
-    fs.mkdir(answer, projectFolderCallback)
+    fs.mkdir(path + answer, projectFolderCallback)
     // rl.close()
   })
 }
