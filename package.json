@@ -13,6 +13,7 @@
   "author": "Evellyn Lim",
   "license": "WTFPL",
   "dependencies": {
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "mkdirp": "^0.5.1"
   }
 }
