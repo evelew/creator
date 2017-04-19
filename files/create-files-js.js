@@ -5,18 +5,25 @@ const fs = require('fs'),
   paths = require('./global-paths')
 let files
 let response
+
+const items = paths.JS_controller;
+
 const data = '"use strict"'
-const question = 'Nome dos arquivos (separados por vírgulo):\n'
 const filesCallback = function (err) {
   if (err) return console.log(err)
-  console.log('Arquivos criados')
+  console.log('Arquivo(s) criado(s)')
+
+  if(items) CreateFilesJS()
 }
 
 function CreateFilesJS() {
-  const createFilesJSCallback = function (err) {
-    if (err) return console.log(err)
-    console.log(response.green)
-  }
+  items.forEach(folder => {
+    getNames(folder)
+  })
+}
+
+function getNames(folder) {
+  const question = `Nome dos arquivos pra pasta ${folder} (separados por vírgulo):\n`
 
   rl.question(question, (answer) => {
     response = `Arquivos "${answer}" criado(s)`
@@ -24,8 +31,11 @@ function CreateFilesJS() {
     files = answer.split(',')
     files.forEach(file => {
       if (file === '') return
-      fs.writeFile(paths.projectRoot + paths.JS + file + '.js', data, filesCallback)
+      fs.writeFile(paths.projectRoot + paths.JS + folder + '/' + file + '.js', data, filesCallback)
     })
+
+    items.splice(0, 1)
+    console.log('restou: ',items)
   })
 }
 

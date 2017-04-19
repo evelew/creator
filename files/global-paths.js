@@ -10,6 +10,8 @@ const paths = {
   CSS: '/assets/myDev/css/sass/',
   // CSS_partial: '/assets/myDev/js/_partial',
   // CSS_view: '/assets/myDev/js/view'
+
+  JS_controller: []
 }
 
 module.exports = paths
