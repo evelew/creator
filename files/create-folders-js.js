@@ -7,7 +7,7 @@ const fs = require('fs'),
   rl = require('./readline'),
   paths = require('./global-paths')
 const CreateJSFiles = require('./create-files-js')
-const question = 'Nome das pastas JS (separados por vírgulo):\n'
+const question = 'Nome das pastas JS (separados por vírgula):\n'
 let folders
 
 function CreateFoldersJS() {
