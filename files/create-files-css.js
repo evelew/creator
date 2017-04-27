@@ -7,17 +7,17 @@ const fs = require('fs'),
 let files
 let response
 
-const folders = paths.JS_controller;
+const folders = paths.CSS_controller;
 
-const CreateCSSFolders = require('./create-folders-css')
+// const CreateCSSFolders = require('./create-folders-css')
 
 const data = '"use strict"'
 const filesCallback = function (err) {
   if (err) return console.log(err)
-  if (folders) CreateFilesJS()
+  if (folders) CreateFilesCSS()
 }
 
-function CreateFilesJS() {
+function CreateFilesCSS() {
   folders.forEach(folder => {
     getNames(folder)
   })
@@ -32,15 +32,11 @@ function getNames(folder) {
     files = answer.split(',')
     files.forEach(file => {
       if (file === '') return
-      fs.writeFile(paths.projectRoot + paths.JS + folder + '/' + file + '.js', data, filesCallback)
+      fs.writeFile(paths.projectRoot + paths.CSS + folder + '/' + file + '.scss', data, filesCallback)
     })
 
-    // console.log('Arquivo(s) criado(s)')
-
     folders.splice(0, 1)
-
-    if(folders.length === 0) CreateCSSFolders()
   })
 }
 
-module.exports = CreateFilesJS
+module.exports = CreateFilesCSS
