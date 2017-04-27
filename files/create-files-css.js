@@ -4,8 +4,9 @@ const fs = require('fs')
 const rl = require('./readline')
 const paths = require('./global-paths')
 const folders = paths.CSS_folders
+const MoveGulpFile = require('./move-gulp.js')
 
-const data = '"use strict"'
+const data = '@charset "utf-8";'
 const filesCallback = function (err) {
   if (err) return console.log(err)
   if (folders) CreateFilesCSS()
@@ -33,8 +34,10 @@ function getNames(folder) {
 
     folders.splice(0, 1)
 
-    if(folders.length === 0) console.log('ok acabou')
-    // TODO CHAMAR AQUI A FUNÇÃO QUE COPIA O ARQUIVO GULPFILE.JS
+    if (folders.length === 0) {
+      console.log('ok acabou')
+      MoveGulpFile()
+    }
   })
 }
 
