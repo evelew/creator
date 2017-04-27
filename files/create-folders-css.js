@@ -1,27 +1,27 @@
 'use strict'
 
-const fs = require('fs'),
-  path = require('path'),
-  mkdirp = require('mkdirp'),
-  getDirName = require('path').dirname,
-  rl = require('./readline'),
-  paths = require('./global-paths')
+const fs = require('fs')
+const path = require('path')
+const mkdirp = require('mkdirp')
+const getDirName = require('path').dirname
+const rl = require('./readline')
+const paths = require('./global-paths')
 
 const CreateCSSFiles = require('./create-files-css')
 
-const question = 'Nome das pastas CSS (separados por vírgula):\n'
-let folders
-
 function CreateFoldersCSS() {
-  console.log('criar pastas css')
+  const question = 'Nome das pastas CSS (separados por vírgula):\n'
+
   rl.question(question, (answer) => {
-    folders = answer.split(',')
+    let folders = answer.split(',')
+
     folders.forEach(folder => {
       if (folder === '') return
+
       const directory = path.normalize(paths.projectRoot + paths.CSS + folder)
       create(directory, folder)
 
-      paths.CSS_controller.push(folder)
+      paths.CSS_folders.push(folder)
     })
 
     CreateCSSFiles()

@@ -1,14 +1,9 @@
 'use strict'
 
-const fs = require('fs'),
-  rl = require('./readline'),
-  paths = require('./global-paths')
-
-let files
-let response
-
-const folders = paths.JS_controller;
-
+const fs = require('fs')
+const rl = require('./readline')
+const paths = require('./global-paths')
+const folders = paths.JS_folders;
 const CreateCSSFolders = require('./create-folders-css')
 
 const data = '"use strict"'
@@ -27,19 +22,18 @@ function getNames(folder) {
   const question = `Nome dos arquivos para a pasta ${folder.magenta} (separados por vírgula):\n`
 
   rl.question(question, (answer) => {
-    response = `Arquivos "${answer}" criado(s)`
+    const response = `Arquivos "${answer}" criado(s)`
+    let files = answer.split(',')
 
-    files = answer.split(',')
     files.forEach(file => {
       if (file === '') return
-      fs.writeFile(paths.projectRoot + paths.JS + folder + '/' + file + '.js', data, filesCallback)
+
+      const filePath = paths.projectRoot + paths.JS + folder + '/' + file + '.js'
+      fs.writeFile(filePath, data, filesCallback)
     })
 
-    // console.log('Arquivo(s) criado(s)')
-
     folders.splice(0, 1)
-
-    if(folders.length === 0) CreateCSSFolders()
+    if (folders.length === 0) CreateCSSFolders()
   })
 }
 

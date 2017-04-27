@@ -1,15 +1,9 @@
 'use strict'
 
-const fs = require('fs'),
-  rl = require('./readline'),
-  paths = require('./global-paths')
-
-let files
-let response
-
-const folders = paths.CSS_controller;
-
-// const CreateCSSFolders = require('./create-folders-css')
+const fs = require('fs')
+const rl = require('./readline')
+const paths = require('./global-paths')
+const folders = paths.CSS_folders
 
 const data = '"use strict"'
 const filesCallback = function (err) {
@@ -27,15 +21,20 @@ function getNames(folder) {
   const question = `Nome dos arquivos para a pasta ${folder.magenta} (separados por vírgula):\n`
 
   rl.question(question, (answer) => {
-    response = `Arquivos "${answer}" criado(s)`
+    let response = `Arquivos "${answer}" criado(s)`
 
-    files = answer.split(',')
+    let files = answer.split(',')
     files.forEach(file => {
       if (file === '') return
-      fs.writeFile(paths.projectRoot + paths.CSS + folder + '/' + file + '.scss', data, filesCallback)
+
+      const filePath = paths.projectRoot + paths.CSS + folder + '/' + file + '.scss'
+      fs.writeFile(filePath, data, filesCallback)
     })
 
     folders.splice(0, 1)
+
+    if(folders.length === 0) console.log('ok acabou')
+    // TODO CHAMAR AQUI A FUNÇÃO QUE COPIA O ARQUIVO GULPFILE.JS
   })
 }
 

@@ -1,24 +1,26 @@
 'use strict'
 
-const fs = require('fs'),
-  path = require('path'),
-  mkdirp = require('mkdirp'),
-  getDirName = require('path').dirname,
-  rl = require('./readline'),
-  paths = require('./global-paths')
+const fs = require('fs')
+const path = require('path')
+const mkdirp = require('mkdirp')
+const getDirName = require('path').dirname
+const rl = require('./readline')
+const paths = require('./global-paths')
 const CreateJSFiles = require('./create-files-js')
-const question = 'Nome das pastas JS (separados por vírgula):\n'
-let folders
 
 function CreateFoldersJS() {
+  const question = 'Nome das pastas JS (separados por vírgula):\n'
+
   rl.question(question, (answer) => {
-    folders = answer.split(',')
+    let folders = answer.split(',')
+
     folders.forEach(folder => {
       if (folder === '') return
+
       const directory = path.normalize(paths.projectRoot + paths.JS + folder)
       create(directory, folder)
 
-      paths.JS_controller.push(folder)
+      paths.JS_folders.push(folder)
     })
 
     CreateJSFiles()
