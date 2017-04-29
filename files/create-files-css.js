@@ -5,6 +5,7 @@ const rl = require('./readline')
 const paths = require('./global-paths')
 const folders = paths.CSS_folders
 const MoveGulpFile = require('./move-gulp.js')
+const MovePackageJSON = require('./move-package.js')
 
 const data = '@charset "utf-8";'
 const filesCallback = function (err) {
@@ -35,8 +36,8 @@ function getNames(folder) {
     folders.splice(0, 1)
 
     if (folders.length === 0) {
-      console.log('ok acabou')
       MoveGulpFile()
+      MovePackageJSON()
     }
   })
 }
