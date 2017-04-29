@@ -3,6 +3,7 @@
 const rl = require('./readline')
 const childProcess = require('child_process')
 const paths = require('./global-paths')
+const InstallLaravel = require('./install-laravel')
 
 function RunNpm() {
   console.log('Executando NPM Install...'.magenta)
@@ -15,12 +16,8 @@ function RunNpm() {
     console.log(`stderr: ${stderr}`)
     console.log(`stdout: ${stdout} \n NPM INSTALL executado com sucesso`.green)
 
-    rl.close()
+    InstallLaravel()
   })
-  
-//  exec.on('exit', (code) => {
-//    console.log('Child process exited with exit code ', code);
-//  });
 }
 
 module.exports = RunNpm
