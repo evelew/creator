@@ -1,11 +1,10 @@
 'use strict'
 
+const path = require('path')
 const paths = {
-  projectRoot: 'C:/Users/Evellyn/Documents/github/teste/',
-
+  projectRoot: path.normalize(__dirname + './../../'),
   JS: '/assets/myDev/js/',
   JS_folders: [],
-
   CSS: '/assets/myDev/css/sass/',
   CSS_folders: []
 }
