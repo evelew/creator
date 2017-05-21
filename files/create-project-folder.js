@@ -5,6 +5,7 @@ const rl = require('./readline')
 const path = require('./global-paths')
 const question = 'Nome do projeto:\n'
 let response = ''
+const CreateFoldersImages = require('./create-folders-images')
 
 const CreateJS = require('./create-folders-js')
 
@@ -12,6 +13,7 @@ function CreateProjectFolder() {
   const projectFolderCallback = function (err) {
     if (err) return console.log(err)
     console.log(response.green)
+    CreateFoldersImages()
     CreateJS()    
   }
 

@@ -3,7 +3,7 @@
 const fs = require('fs')
 const rl = require('./readline')
 const paths = require('./global-paths')
-const folders = paths.JS_folders;
+const folders = paths.JS_folders
 const CreateCSSFolders = require('./create-folders-css')
 
 const data = '"use strict"'

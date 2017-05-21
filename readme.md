@@ -6,10 +6,11 @@ raíz
  - assets
   - myDev
    - css
+    - images
     - sass
      - *pastas que você nomear*
       - *arquivos que você nomear*
-   - images (ainda não está implementado)
+   - images
    - js
     - *pastas que você nomear*
       - *arquivos que você nomear*
@@ -21,7 +22,7 @@ raíz
 
 > Como instalar: 
 
-Faça o download desse repositório e rode um `npm install` 
+Faça o download desse repositório e rode um `npm install`.
 
 > Como usar:
 
