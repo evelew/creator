@@ -20,6 +20,8 @@ raíz
  package.json
 ```
 
+> OBS: os arquivos `gulpfile.js` e `package.json` são cópias dos arquivos que estão na raíz no Creator.
+
 > Como instalar: 
 
 Faça o download desse repositório e rode um `npm install`.
