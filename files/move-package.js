@@ -10,7 +10,7 @@ function MovePackageJSON() {
   const filePath = paths.projectRoot + '/' + fileName
 
   console.log(`Copiando arquivo ${fileName}`.green)
-  fs.createReadStream('package-to-copy.json').pipe(fs.createWriteStream(filePath))
+  fs.createReadStream('./copy/package.json').pipe(fs.createWriteStream(filePath))
 
   RunNpm()
 }

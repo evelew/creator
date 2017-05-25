@@ -9,7 +9,7 @@ function MoveGulpFile() {
   const filePath = paths.projectRoot + '/' + fileName
   
   console.log(`Copiando arquivo ${fileName}`.green)
-  fs.createReadStream(fileName).pipe(fs.createWriteStream(filePath))
+  fs.createReadStream('./copy/' + fileName).pipe(fs.createWriteStream(filePath))
 }
 
 module.exports = MoveGulpFile

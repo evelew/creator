@@ -20,7 +20,7 @@ raíz
  package.json
 ```
 
-OBS: os arquivos `gulpfile.js` e `package.json` são cópias dos arquivos que estão na raíz no Creator.
+OBS: os arquivos dentro da pasta `copy` serão copiados e colados dentro do novo projeto. (Por enquanto apenas os arquivos `gulpfile.js` e `package.json` estão sendo copiados).
 
 > Como instalar: 
 
