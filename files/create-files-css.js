@@ -6,6 +6,7 @@ const paths = require('./global-paths')
 const folders = paths.CSS_folders
 const MoveGulpFile = require('./move-gulp.js')
 const MovePackageJSON = require('./move-package.js')
+const CopyFiles = require('./copy-files')
 
 const data = '@charset "utf-8";'
 const filesCallback = function (err) {
@@ -38,6 +39,7 @@ function getNames(folder) {
     if (folders.length === 0) {
       MoveGulpFile()
       MovePackageJSON()
+      // CopyFiles()
     }
   })
 }

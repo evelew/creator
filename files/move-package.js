@@ -12,7 +12,7 @@ function MovePackageJSON() {
   console.log(`Copiando arquivo ${fileName}`.green)
   fs.createReadStream('./copy/package.json').pipe(fs.createWriteStream(filePath))
 
-  RunNpm()
+  // RunNpm()
 }
 
 module.exports = MovePackageJSON
