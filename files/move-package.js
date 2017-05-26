@@ -3,7 +3,7 @@
 const fs = require('fs')
 const rl = require('./readline')
 const paths = require('./global-paths')
-const RunNpm = require('./run-npm-install')
+// const RunNpm = require('./run-npm-install')
 
 function MovePackageJSON() {
   const fileName = 'package.json'
