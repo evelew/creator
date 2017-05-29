@@ -17,7 +17,7 @@ function CopyFiles() {
     });
   })
 
-	// RunNpm()
+	RunNpm()
 }
 
 module.exports = CopyFiles
