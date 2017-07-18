@@ -8,15 +8,17 @@ const rl = readline.createInterface({
 })
 const prefix = '> '
 
-rl.on('line', function(line) {
+rl.on('line', (line) => {
   rl.setPrompt(prefix, prefix.length)
   rl.prompt()
-}).on('close', function() {
+}).on('close', () => {
   console.log('Tenha um ótimo dia!')
   process.exit(0)
-});
+})
+
 console.log(prefix + 'Ei, bom te ver.')
+
 rl.setPrompt(prefix, prefix.length)
-rl.prompt();
+rl.prompt()
 
 module.exports = rl

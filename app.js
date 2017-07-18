@@ -1,5 +1,5 @@
 'use strict'
 
-const createProject = require('./files/create-project-folder')
+const createProject = require('./actions/create/create-project-folder')
 
 createProject()

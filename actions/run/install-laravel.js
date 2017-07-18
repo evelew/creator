@@ -1,10 +1,10 @@
 'use strict'
 
-const rl = require('./readline')
 const childProcess = require('child_process')
-const paths = require('./global-paths')
+const rl = require('./../readline')
+const paths = require('./../global-paths')
 
-function ComposerCreatLaravel() {
+const composerCreatLaravel = () => {
   console.log('Executando COMPOSER CREAT LARAVEL PROJECT...'.magenta)
 
   let exec = childProcess.exec(`composer create-project --prefer-dist laravel/laravel`, {
@@ -19,4 +19,4 @@ function ComposerCreatLaravel() {
   })
 }
 
-module.exports = ComposerCreatLaravel
+module.exports = composerCreatLaravel

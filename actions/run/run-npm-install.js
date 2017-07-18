@@ -1,11 +1,11 @@
 'use strict'
 
-const rl = require('./readline')
+const rl = require('./../readline')
 const childProcess = require('child_process')
-const paths = require('./global-paths')
-const InstallLaravel = require('./install-laravel')
+const paths = require('./../global-paths')
+const installLaravel = require('./install-laravel')
 
-function RunNpm() {
+const runNPM = () => {
   console.log('Executando NPM Install...'.magenta)
 
   let exec = childProcess.exec('npm install', {
@@ -16,8 +16,8 @@ function RunNpm() {
     console.log(`stderr: ${stderr}`)
     console.log(`stdout: ${stdout} \n NPM INSTALL executado com sucesso`.green)
 
-    InstallLaravel()
+    installLaravel()
   })
 }
 
-module.exports = RunNpm
+module.exports = runNPM

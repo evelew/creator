@@ -1,20 +1,21 @@
 'use strict'
 
 const fs = require('fs')
-const rl = require('./readline')
-const path = require('./global-paths')
+const rl = require('./../readline')
+const path = require('./../global-paths')
 const question = 'Nome do projeto:\n'
-let response = ''
-const CreateFoldersImages = require('./create-folders-images')
 
-const CreateJS = require('./create-folders-js')
+const createFoldersImages = require('./create-folders-images')
+const createJS = require('./create-folders-js')
 
-function CreateProjectFolder() {
-  const projectFolderCallback = function (err) {
+const createProjectFolder = () => {
+  let response = ''
+
+  const projectFolderCallback = (err) => {
     if (err) return console.log(err)
     console.log(response.green)
-    CreateFoldersImages()
-    CreateJS()    
+    createFoldersImages()
+    createJS()    
   }
 
   rl.question(question, (answer) => {
@@ -27,4 +28,4 @@ function CreateProjectFolder() {
   })
 }
 
-module.exports = CreateProjectFolder
+module.exports = createProjectFolder

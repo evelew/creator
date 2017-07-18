@@ -1,24 +1,24 @@
 'use strict'
 
 const fs = require('fs')
-const rl = require('./readline')
-const paths = require('./global-paths')
+const rl = require('./../readline')
+const paths = require('./../global-paths')
 const folders = paths.CSS_folders
-const CopyFiles = require('./copy-files')
+const CopyFiles = require('./../copy/copy-files')
 
-const data = '@charset "utf-8";'
-const filesCallback = function (err) {
-  if (err) return console.log(err)
-  if (folders) CreateFilesCSS()
-}
-
-function CreateFilesCSS() {
+const createFilesCSS = () => {
   folders.forEach(folder => {
     getNames(folder)
   })
 }
 
-function getNames(folder) {
+const data = '@charset "utf-8";'
+const filesCallback = (err) => {
+  if (err) return console.log(err)
+  if (folders) createFilesCSS()
+}
+
+const getNames = (folder) => {
   const question = `Nome dos arquivos para a pasta ${folder.magenta} (separados por vírgula):\n`
 
   rl.question(question, (answer) => {
@@ -40,4 +40,4 @@ function getNames(folder) {
   })
 }
 
-module.exports = CreateFilesCSS
+module.exports = createFilesCSS

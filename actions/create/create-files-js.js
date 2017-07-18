@@ -1,27 +1,27 @@
 'use strict'
 
 const fs = require('fs')
-const rl = require('./readline')
-const paths = require('./global-paths')
+const rl = require('./../readline')
+const paths = require('./../global-paths')
 const folders = paths.JS_folders
-const CreateCSSFolders = require('./create-folders-css')
+const createCSSFolders = require('./create-folders-css')
 
 const data = '"use strict"'
-const filesCallback = function (err) {
+const filesCallback = (err) => {
   if (err) return console.log(err)
-  if (folders) CreateFilesJS()
+  if (folders) createFilesJS()
 }
 
-function CreateFilesJS() {
+const createFilesJS = () => {
   folders.forEach(folder => {
     getNames(folder)
   })
 }
 
-function getNames(folder) {
+const getNames = (folder) => {
   const question = `Nome dos arquivos para a pasta ${folder.magenta} (separados por vírgula):\n`
 
-  rl.question(question, (answer) => {
+    rl.question(question, (answer) => {
     const response = `Arquivos "${answer}" criado(s)`
     let files = answer.split(',')
 
@@ -33,8 +33,8 @@ function getNames(folder) {
     })
 
     folders.splice(0, 1)
-    if (folders.length === 0) CreateCSSFolders()
+    if (folders.length === 0) createCSSFolders()
   })
 }
 
-module.exports = CreateFilesJS
+module.exports = createFilesJS

@@ -3,13 +3,21 @@
 const fs = require('fs')
 const path = require('path')
 const mkdirp = require('mkdirp')
+
 const getDirName = require('path').dirname
-const rl = require('./readline')
-const paths = require('./global-paths')
+const rl = require('./../readline')
+const paths = require('./../global-paths')
 
-const CreateCSSFiles = require('./create-files-css')
+const createCSSFiles = require('./create-files-css')
 
-function CreateFoldersCSS() {
+const create = (directory, folder) => {
+  mkdirp(directory, (err) => {
+    if (err) return console.log(`ERRO mkdir: "${err}"`)
+    console.log(`Pasta criada: "${directory.green}"`)
+  })
+}
+
+const createFoldersCSS = () => {
   const question = 'Nome das pastas CSS (separados por vírgula):\n'
 
   rl.question(question, (answer) => {
@@ -24,15 +32,9 @@ function CreateFoldersCSS() {
       paths.CSS_folders.push(folder)
     })
 
-    CreateCSSFiles()
+    createCSSFiles()
   })
 }
 
-function create(directory, folder) {
-  mkdirp(directory, (err) => {
-    if (err) return console.log(`ERRO mkdir: "${err}"`)
-    console.log(`Pasta criada: "${directory.green}"`)
-  })
-}
 
-module.exports = CreateFoldersCSS
+module.exports = createFoldersCSS

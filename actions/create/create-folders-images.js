@@ -1,11 +1,11 @@
 'use strict';
 
 const fs = require('fs')
-const paths = require('./global-paths')
+const paths = require('./../global-paths')
 const mkdirp = require('mkdirp')
 const directories = [paths.CSS_images, paths.images]  
 
-function CreateFoldersImages(){
+const createFoldersImages = () =>{
   directories.forEach(directory => {
     mkdirp(paths.projectRoot + directory, (err) => {
       if (err) return console.log(`ERRO mkdir: "${err}"`)
@@ -14,4 +14,4 @@ function CreateFoldersImages(){
   })
 }
 
-module.exports = CreateFoldersImages
+module.exports = createFoldersImages
